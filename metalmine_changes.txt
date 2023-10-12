@@ -1,0 +1,32 @@
+#
+#-----[ OPEN ]-----
+#
+root/modules/metalmine/metalmine_work.php
+
+#
+#-----[ FIND ]-----
+#
+					$chance=e_rand(1,5);
+					if ($vals['racesave']) {
+						if ($vals['schema']) tlschema($vals['schema']);
+						$racemsg = translate_inline($vals['racesave']);
+						if ($vals['schema']) tlschema();
+					}
+					if (e_rand(1, 100) < $vals['chance']) $dead = 1;
+					output("You suddenly feel the walls closing in around you. The mine is collapsing!");
+					if ($dead==1 && $chance==1){
+
+#
+#-----[ REPLACE WITH ]-----
+#
+					$chance = ( isset($vals['chance']) && !empty($vals['chance']) ) ? $vals['chance'] : e_rand(1,100);
+					if ($vals['schema']) tlschema($vals['schema']);
+					$racemsg = translate_inline(( isset($vals['racesave']) && !empty($vals['racesave']) ) ? $vals['racesave'] : 'Fortunately you\'re able to escape unscathed by the skin of your teeth.`n');
+					if ($vals['schema']) tlschema();
+
+					output("You suddenly feel the walls closing in around you. The mine is collapsing!");
+					if (e_rand(1, 100) < $chance){
+
+#
+#-----[ SAVE/CLOSE FILE ]-----
+#
